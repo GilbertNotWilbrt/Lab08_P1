@@ -24,3 +24,17 @@ project, and how to fix them.
 
 The project 'zuul-better' contains a version of this project with better
 designed class structure. It includes the fixes discussed in the book.
+
+1. 
+
+This application is a text-based adventure game where navigatable
+through connected rooms by using text commands. These commands are 
+- go : Moves the player north, east,south, or west
+- quit : ends game
+- help : displays a list of commands
+
+There are 5 rooms.
+
+Campus pub - Outside - Lecture theater 
+
+            Computing Lab - Admin Office
