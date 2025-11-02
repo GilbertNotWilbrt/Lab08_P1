@@ -1,4 +1,4 @@
-/**
+    /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
  *  can walk around some scenery. That's all. It should really be extended 
@@ -33,24 +33,24 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room foodCourt, mainCorridor, petShop, exitArea, mainExit;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        foodCourt = new Room("the grand food court where customers go to eat");
+        mainCorridor = new Room("the wide corridor centered by large stores");
+        petShop = new Room("the pet shop to adopt small animals and buy pet food");
+        exitArea = new Room("a quiet hall leading to the exit");
+        mainExit = new Room("Freedom from the bustling mall");
         
         // initialise room exits
-        outside.setExits(null, theater, lab, pub);
-        theater.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        lab.setExits(outside, office, null, null);
-        office.setExits(null, null, null, lab);
+        foodCourt.setExits(null, mainCorridor, exitArea, exitArea);
+        mainCorridor.setExits(null, null, null, foodCourt);
+        petShop.setExits(null, foodCourt, null, null);
+        exitArea.setExits(foodCourt, mainExit, null, null);
+        mainExit.setExits(null, null, null, exitArea);
 
         // start game outside
-        currentRoom = outside;  
+        currentRoom = foodCourt;  
     }
 
     /**

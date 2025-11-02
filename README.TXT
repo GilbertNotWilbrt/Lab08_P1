@@ -38,3 +38,20 @@ There are 5 rooms.
 Campus pub - Outside - Lecture theater 
 
             Computing Lab - Admin Office
+
+2.
+
+Game: It controls the game, creates rooms, and processes commands
+
+Parser: Reads and interprets user input
+
+Command: Represents a user command w/ command word and second word
+
+CommandWords: Validates if word is a real command
+
+Room: Represents location with description
+
+3-4.
+
+I made a game set in a mall and the goal is to find the main exit.
+Simply changed the names of the rooms but kept the same type of rooms.
