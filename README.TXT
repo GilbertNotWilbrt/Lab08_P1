@@ -55,3 +55,13 @@ Room: Represents location with description
 
 I made a game set in a mall and the goal is to find the main exit.
 Simply changed the names of the rooms but kept the same type of rooms.
+
+5.
+
+ I replaced the code that showed itself twice by making a new method.
+I replcaed it as it violated the DRY principle.
+Then I updated the code that I deleted in the original with the new method.
+
+6.
+
+ 

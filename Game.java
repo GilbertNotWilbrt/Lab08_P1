@@ -36,11 +36,11 @@ public class Game
         Room foodCourt, mainCorridor, petShop, exitArea, mainExit;
       
         // create the rooms
-        foodCourt = new Room("the grand food court where customers go to eat");
-        mainCorridor = new Room("the wide corridor centered by large stores");
-        petShop = new Room("the pet shop to adopt small animals and buy pet food");
-        exitArea = new Room("a quiet hall leading to the exit");
-        mainExit = new Room("Freedom from the bustling mall");
+        foodCourt = new Room(" in the grand food court where customers go to eat.");
+        mainCorridor = new Room(" in the wide corridor centered by large stores.");
+        petShop = new Room("in the pet shop to adopt small animals and buy pet food.");
+        exitArea = new Room("in a quiet hall leading to the exit.");
+        mainExit = new Room("free from the bustling mall!");
         
         // initialise room exits
         foodCourt.setExits(null, mainCorridor, exitArea, exitArea);
@@ -70,6 +70,32 @@ public class Game
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
+    
+    /*
+     * This is a new method we replace for the if statements in printWelcome()
+     */
+    private void printLocationInfo()
+    {
+        // Prints room description you are in
+        System.out.println("You are " + currentRoom.getDescription); 
+        
+        //Prints the exit header
+        System.out.println("Exits: ");
+        
+        if(currentRoom.getExit != null) {
+            System.out.print("north");
+        }
+        if(currentRoom.getExit != null) {
+            System.out.print("east");
+        }
+        if(currentRoom.southExit != null){
+            System.out.print("south");
+        }
+        if(currentRoom.westExit != null) {
+            System.out.print("west");
+        }
+        System.out.println();
+    }
 
     /**
      * Print out the opening message for the player.
@@ -81,7 +107,12 @@ public class Game
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
         System.out.println("Type 'help' if you need help.");
         System.out.println();
-        System.out.println("You are " + currentRoom.getDescription());
+        
+        //replaces the code deleted
+        printLocationInfo();
+        /*
+         * All of this is deleted
+         * System.out.println("You are " + currentRoom.getDescription());
         System.out.print("Exits: ");
         if(currentRoom.northExit != null) {
             System.out.print("north ");
@@ -96,6 +127,7 @@ public class Game
             System.out.print("west ");
         }
         System.out.println();
+         */
     }
 
     /**
@@ -153,44 +185,25 @@ public class Game
             System.out.println("Go where?");
             return;
         }
+        
+        Room nextRoom = null;
+        
+        Room nextRoom = currentRoom.getExit(direction);
+
 
         String direction = command.getSecondWord();
 
         // Try to leave current room.
-        Room nextRoom = null;
-        if(direction.equals("north")) {
-            nextRoom = currentRoom.northExit;
-        }
-        if(direction.equals("east")) {
-            nextRoom = currentRoom.eastExit;
-        }
-        if(direction.equals("south")) {
-            nextRoom = currentRoom.southExit;
-        }
-        if(direction.equals("west")) {
-            nextRoom = currentRoom.westExit;
-        }
-
+        // This is the line that replaced the previous code
+        
         if (nextRoom == null) {
             System.out.println("There is no door!");
         }
         else {
             currentRoom = nextRoom;
-            System.out.println("You are " + currentRoom.getDescription());
-            System.out.print("Exits: ");
-            if(currentRoom.northExit != null) {
-                System.out.print("north ");
-            }
-            if(currentRoom.eastExit != null) {
-                System.out.print("east ");
-            }
-            if(currentRoom.southExit != null) {
-                System.out.print("south ");
-            }
-            if(currentRoom.westExit != null) {
-                System.out.print("west ");
-            }
-            System.out.println();
+            
+            //Replaced the code.
+            printLocationInfo();
         }
     }
 
