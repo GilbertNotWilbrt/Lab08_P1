@@ -77,21 +77,21 @@ public class Game
     private void printLocationInfo()
     {
         // Prints room description you are in
-        System.out.println("You are " + currentRoom.getDescription); 
+        System.out.println("You are " + currentRoom.getDescription()); 
         
         //Prints the exit header
         System.out.println("Exits: ");
         
-        if(currentRoom.getExit != null) {
+        if(currentRoom.getExit("north") != null) {
             System.out.print("north");
         }
-        if(currentRoom.getExit != null) {
+        if(currentRoom.getExit("east") != null) {
             System.out.print("east");
         }
-        if(currentRoom.southExit != null){
+        if(currentRoom.getExit("south") != null){
             System.out.print("south");
         }
-        if(currentRoom.westExit != null) {
+        if(currentRoom.getExit("west") != null) {
             System.out.print("west");
         }
         System.out.println();
@@ -186,12 +186,9 @@ public class Game
             return;
         }
         
-        Room nextRoom = null;
+        String direction = command.getSecondWord();
         
         Room nextRoom = currentRoom.getExit(direction);
-
-
-        String direction = command.getSecondWord();
 
         // Try to leave current room.
         // This is the line that replaced the previous code
