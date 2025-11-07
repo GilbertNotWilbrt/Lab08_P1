@@ -127,6 +127,13 @@ public class Game
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
         }
+        /*
+         * This makes it so we look into the room, get the description,
+         * but we stay in the room we are in.
+         */
+        else if(commandWord.equals("look")) {
+            System.out.println(currentRoom.getLongDescription());   
+        }
 
         return wantToQuit;
     }
