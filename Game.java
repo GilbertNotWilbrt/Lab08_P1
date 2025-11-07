@@ -128,11 +128,14 @@ public class Game
             wantToQuit = quit(command);
         }
         /*
-         * This makes it so we look into the room, get the description,
+         * This makes it so we look in the room, get the description,
          * but we stay in the room we are in.
          */
         else if(commandWord.equals("look")) {
             System.out.println(currentRoom.getLongDescription());   
+        }
+        else if(commandWord.equals("eat")) {
+            System.out.println("You have eaten now and you are not hungry anymore.");
         }
 
         return wantToQuit;
@@ -151,7 +154,7 @@ public class Game
         System.out.println("around at the university.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+        System.out.println("    " + parser.getCommands().showAll());
     }
 
     /** 

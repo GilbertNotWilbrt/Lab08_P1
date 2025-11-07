@@ -66,10 +66,17 @@ Then I updated the code that I deleted in the original with the new method.
 
 HashMap.keySet() returns a set of all keys currently in the map.
 
-12.
+17.
 
+No, you don’t NEED to change the Game class anymore when you add a new command
+to the list as it will automatically show up in the help text because printHelp()
+now uses parser.getCommands().showAll(). We used to hard code it directly, but now we 
+can just derive it from commandwords/parser.
 
+You should only add code in Game if you want the command to do something new (like look or eat).
 
-13.
+18.
 
+You could make CommandWords methods static, as it has no changing data.
+But it would be better not to, as it would make it more difficult to change later.
  
