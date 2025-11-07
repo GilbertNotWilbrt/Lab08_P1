@@ -62,6 +62,8 @@ Simply changed the names of the rooms but kept the same type of rooms.
 I replcaed it as it violated the DRY principle.
 Then I updated the code that I deleted in the original with the new method.
 
-6.
+9.
+
+
 
  

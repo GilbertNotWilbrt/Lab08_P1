@@ -42,14 +42,21 @@ public class Game
         exitArea = new Room("in a quiet hall leading to the exit.");
         mainExit = new Room("free from the bustling mall!");
         
-        // initialise room exits
-        foodCourt.setExits(null, mainCorridor, exitArea, exitArea);
-        mainCorridor.setExits(null, null, null, foodCourt);
-        petShop.setExits(null, foodCourt, null, null);
-        exitArea.setExits(foodCourt, mainExit, null, null);
-        mainExit.setExits(null, null, null, exitArea);
-
-        // start game outside
+        // foodCourt: east -> mainCorridor, exitArea
+        foodCourt.setExits("east", mainCorridor);
+        foodCourt.setExits("south", exitArea);
+        foodCourt.setExits("west", exitArea);
+        
+        mainCorridor.setExits("west", foodCourt);
+        
+        petShop.setExits("east", foodCourt);
+        
+        exitArea.setExits("north", foodCourt);
+        exitArea.setExits("east", mainExit);
+        
+        mainExit.setExits("west", exitArea);
+        
+        // start game in foodCourt
         currentRoom = foodCourt;  
     }
 
@@ -78,23 +85,8 @@ public class Game
     {
         // Prints room description you are in
         System.out.println("You are " + currentRoom.getDescription()); 
+        System.out.println(currentRoom.getExitString());
         
-        //Prints the exit header
-        System.out.println("Exits: ");
-        
-        if(currentRoom.getExit("north") != null) {
-            System.out.print("north");
-        }
-        if(currentRoom.getExit("east") != null) {
-            System.out.print("east");
-        }
-        if(currentRoom.getExit("south") != null){
-            System.out.print("south");
-        }
-        if(currentRoom.getExit("west") != null) {
-            System.out.print("west");
-        }
-        System.out.println();
     }
 
     /**
@@ -110,24 +102,6 @@ public class Game
         
         //replaces the code deleted
         printLocationInfo();
-        /*
-         * All of this is deleted
-         * System.out.println("You are " + currentRoom.getDescription());
-        System.out.print("Exits: ");
-        if(currentRoom.northExit != null) {
-            System.out.print("north ");
-        }
-        if(currentRoom.eastExit != null) {
-            System.out.print("east ");
-        }
-        if(currentRoom.southExit != null) {
-            System.out.print("south ");
-        }
-        if(currentRoom.westExit != null) {
-            System.out.print("west ");
-        }
-        System.out.println();
-         */
     }
 
     /**
