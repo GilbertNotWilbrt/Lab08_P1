@@ -64,6 +64,12 @@ Then I updated the code that I deleted in the original with the new method.
 
 9.
 
+HashMap.keySet() returns a set of all keys currently in the map.
 
+12.
+
+
+
+13.
 
  

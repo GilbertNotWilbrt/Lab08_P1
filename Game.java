@@ -84,8 +84,7 @@ public class Game
     private void printLocationInfo()
     {
         // Prints room description you are in
-        System.out.println("You are " + currentRoom.getDescription()); 
-        System.out.println(currentRoom.getExitString());
+        System.out.println(currentRoom.getLongDescription());
         
     }
 
